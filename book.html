@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Book Direct | Hostel Old Plovdiv</title>
+<style>
+  :root{
+    --maroon:#5b2e1f;
+    --maroon-dark:#3f1f15;
+    --gold:#c9a66b;
+    --gold-light:#e6d3ac;
+    --cream:#faf6ef;
+    --cream-2:#f2ead9;
+    --ink:#2b1b13;
+    --line:#e4d7c2;
+    --ok:#3e7a4d;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand-name{
+    font-family:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    color:var(--maroon-dark);
+    margin:0 0 .3em;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--maroon);}
+  button{font-family:inherit;}
+
+  /* Header */
+  header.site-header{
+    position:sticky;top:0;z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+    padding:.7rem 1rem;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:.75rem;
+  }
+  .brand{display:flex;align-items:center;gap:.6rem;min-width:0;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--maroon);
+    color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:Georgia,serif;font-weight:700;font-size:1rem;flex:none;
+  }
+  .brand-text{min-width:0;}
+  .brand-name{font-size:1rem;margin:0;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand-sub{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);}
+  .back-link{
+    font-size:.82rem;color:var(--maroon);text-decoration:none;
+    border:1px solid var(--line);border-radius:20px;padding:.4rem .8rem;
+    white-space:nowrap;flex:none;
+  }
+  .back-link:hover{background:var(--cream-2);}
+
+  /* Direct booking banner */
+  .direct-banner{
+    background:var(--maroon);
+    color:var(--gold-light);
+    text-align:center;
+    font-size:.85rem;
+    padding:.6rem 1rem;
+  }
+  .direct-banner strong{color:#fff;}
+
+  main{max-width:840px;margin:0 auto;padding:1.1rem 1rem 4rem;}
+
+  .page-title{text-align:center;margin-bottom:.2rem;}
+  .page-title h1{font-size:1.6rem;}
+  .page-sub{text-align:center;color:#6b5645;font-size:.92rem;margin-bottom:1.4rem;}
+
+  /* Progress */
+  .progress{
+    display:flex;justify-content:center;gap:.4rem;margin-bottom:1.6rem;
+    flex-wrap:wrap;
+  }
+  .progress .step{
+    display:flex;align-items:center;gap:.4rem;
+    font-size:.72rem;color:#a08b76;
+    padding:.3rem .6rem;border-radius:16px;
+  }
+  .progress .step.active{color:var(--maroon-dark);font-weight:600;background:var(--gold-light);}
+  .progress .num{
+    width:18px;height:18px;border-radius:50%;
+    background:#e9dfcc;color:#8a7359;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.68rem;font-weight:700;flex:none;
+  }
+  .progress .step.active .num{background:var(--maroon);color:#fff;}
+
+  /* Panels */
+  .panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.2rem;
+    margin-bottom:1.2rem;
+    box-shadow:0 1px 3px rgba(91,46,31,.05);
+  }
+  .panel h2{font-size:1.15rem;margin-bottom:.9rem;}
+  .panel-note{font-size:.8rem;color:#8a7359;margin-top:-.5rem;margin-bottom:1rem;}
+
+  .field-row{display:grid;grid-template-columns:1fr;gap:.9rem;}
+  @media(min-width:560px){
+    .field-row.cols-3{grid-template-columns:1fr 1fr 1fr;}
+    .field-row.cols-2{grid-template-columns:1fr 1fr;}
+  }
+  label{
+    display:block;font-size:.78rem;font-weight:600;color:var(--maroon-dark);
+    margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.03em;
+  }
+  input[type=date],input[type=text],input[type=email],input[type=tel],select,textarea{
+    width:100%;padding:.65rem .7rem;
+    border:1px solid var(--line);border-radius:8px;
+    font-size:.95rem;color:var(--ink);background:#fffdf9;
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+  textarea{resize:vertical;min-height:70px;}
+
+  .nights-box{
+    margin-top:1rem;background:var(--cream-2);border-radius:10px;
+    padding:.7rem .9rem;font-size:.88rem;color:var(--maroon-dark);
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+  }
+  .nights-box strong{font-size:1rem;}
+
+  .btn{
+    display:inline-block;border:none;border-radius:24px;
+    padding:.75rem 1.5rem;font-size:.9rem;font-weight:700;
+    cursor:pointer;letter-spacing:.02em;
+  }
+  .btn-primary{background:var(--maroon);color:#fff;}
+  .btn-primary:hover{background:var(--maroon-dark);}
+  .btn-primary:disabled{background:#c9b8a9;cursor:not-allowed;}
+  .btn-ghost{background:transparent;color:var(--maroon);border:1px solid var(--maroon);}
+  .btn-ghost:hover{background:var(--cream-2);}
+  .btn-row{display:flex;justify-content:space-between;gap:.6rem;margin-top:1.2rem;flex-wrap:wrap;}
+
+  /* Room cards */
+  .room-grid{display:grid;grid-template-columns:1fr;gap:1rem;}
+  @media(min-width:620px){.room-grid{grid-template-columns:1fr 1fr;}}
+  .room-card{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;background:#fffdf9;
+    transition:box-shadow .15s, border-color .15s;
+  }
+  .room-card.selected{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold-light);}
+  .room-photo{width:100%;height:150px;object-fit:cover;background:#eee2cc;}
+  .room-body{padding:.85rem .9rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1;}
+  .room-name{font-family:Georgia,serif;font-size:1.02rem;color:var(--maroon-dark);}
+  .room-detail{font-size:.8rem;color:#6b5645;flex:1;}
+  .room-price{font-size:.95rem;font-weight:700;color:var(--maroon);}
+  .room-price span{font-weight:400;color:#8a7359;font-size:.75rem;}
+  .room-select-btn{
+    margin-top:.4rem;width:100%;padding:.55rem;border-radius:8px;
+    border:1px solid var(--maroon);background:#fff;color:var(--maroon);
+    font-weight:700;font-size:.85rem;cursor:pointer;
+  }
+  .room-card.selected .room-select-btn{background:var(--maroon);color:#fff;}
+
+  /* Summary bar */
+  .summary-bar{
+    position:sticky;bottom:0;z-index:40;
+    background:var(--maroon-dark);color:#fff;
+    padding:.8rem 1rem;border-radius:14px 14px 0 0;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+    font-size:.85rem;
+    box-shadow:0 -2px 10px rgba(0,0,0,.15);
+  }
+  .summary-bar .total{font-size:1.1rem;font-weight:700;color:var(--gold-light);}
+  .summary-bar.empty{opacity:.55;}
+
+  /* Confirmation */
+  .confirm-box{
+    background:var(--cream-2);border:1px dashed var(--gold);border-radius:12px;
+    padding:1.1rem;margin-top:.5rem;
+  }
+  .confirm-row{display:flex;justify-content:space-between;gap:1rem;font-size:.88rem;padding:.32rem 0;border-bottom:1px solid var(--line);}
+  .confirm-row:last-child{border-bottom:none;}
+  .confirm-row span:first-child{color:#6b5645;flex:none;}
+  .confirm-row span:last-child{text-align:right;}
+  .confirm-total{font-size:1.15rem;font-weight:700;color:var(--maroon-dark);text-align:right;margin-top:.6rem;}
+  .demo-note{
+    margin-top:1rem;background:#fff;border-left:4px solid var(--gold);
+    padding:.7rem .9rem;font-size:.82rem;color:#6b5645;border-radius:6px;
+  }
+  .success-icon{
+    width:46px;height:46px;border-radius:50%;background:var(--ok);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.6rem;
+  }
+
+  .error-msg{color:#a83232;font-size:.8rem;margin-top:.5rem;display:none;}
+  .error-msg.show{display:block;}
+
+  footer{
+    background:var(--maroon-dark);color:#e9dbc7;
+    padding:2rem 1rem 1.4rem;margin-top:2rem;
+    font-size:.85rem;
+  }
+  footer .foot-wrap{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:.4rem;}
+  footer a{color:var(--gold-light);}
+  footer .foot-credit{
+    margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.15);
+    font-size:.78rem;color:#c9b8a9;
+  }
+  footer .foot-credit a{color:var(--gold);font-weight:600;text-decoration:none;}
+
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark">HP</div>
+    <div class="brand-text">
+      <p class="brand-name">Hostel Old Plovdiv</p>
+      <p class="brand-sub">Old Town, Plovdiv</p>
+    </div>
+  </div>
+  <a class="back-link" href="index.html">Back to site</a>
+</header>
+
+<div class="direct-banner">
+  <strong>Book direct with us:</strong> no booking fees, best rate, and we hold your Rhodope day-trip spot.
+</div>
+
+<main>
+  <div class="page-title">
+    <h1>Book Your Stay</h1>
+  </div>
+  <p class="page-sub">A first-party booking flow concept for Hostel Old Plovdiv. No middleman, no commission, straight to us.</p>
+
+  <div class="progress" id="progressBar">
+    <div class="step active" data-step="1"><span class="num">1</span> Dates</div>
+    <div class="step" data-step="2"><span class="num">2</span> Room</div>
+    <div class="step" data-step="3"><span class="num">3</span> Details</div>
+    <div class="step" data-step="4"><span class="num">4</span> Confirm</div>
+  </div>
+
+  <!-- STEP 1: Dates + guests -->
+  <section class="panel" id="step1">
+    <h2>When are you staying?</h2>
+    <div class="field-row cols-3">
+      <div>
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin">
+      </div>
+      <div>
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout">
+      </div>
+      <div>
+        <label for="guests">Guests</label>
+        <select id="guests">
+          <option value="1">1 guest</option>
+          <option value="2" selected>2 guests</option>
+          <option value="3">3 guests</option>
+          <option value="4">4 guests</option>
+          <option value="5">5 guests</option>
+          <option value="6">6 guests</option>
+        </select>
+      </div>
+    </div>
+    <div class="nights-box" id="nightsBox">
+      <span>Pick your dates to see the length of stay.</span>
+    </div>
+    <p class="error-msg" id="dateError">Check-out must be after check-in. Please pick valid dates.</p>
+    <div class="btn-row">
+      <span></span>
+      <button class="btn btn-primary" id="toStep2" disabled>Choose a room</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: Room selection -->
+  <section class="panel hidden" id="step2">
+    <h2>Choose your room</h2>
+    <p class="panel-note">All rates shown are per night. Select a room to see your running total.</p>
+    <div class="room-grid" id="roomGrid"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" id="backTo1">Back</button>
+      <button class="btn btn-primary" id="toStep3" disabled>Continue to your details</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: Guest details -->
+  <section class="panel hidden" id="step3">
+    <h2>Your details</h2>
+    <p class="panel-note">This is a demo form. Nothing typed here is saved, stored, or sent anywhere.</p>
+    <div class="field-row cols-2">
+      <div>
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" placeholder="Jane Traveler">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="jane@example.com">
+      </div>
+    </div>
+    <div class="field-row cols-2" style="margin-top:.9rem;">
+      <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="+1 555 123 4567">
+      </div>
+      <div>
+        <label for="notes">Notes (optional)</label>
+        <input type="text" id="notes" placeholder="Arrival time, Rhodope day trip interest, etc.">
+      </div>
+    </div>
+    <p class="error-msg" id="formError">Please fill in your name, email, and phone to continue.</p>
+    <div class="btn-row">
+      <button class="btn btn-ghost" id="backTo2">Back</button>
+      <button class="btn btn-primary" id="toStep4">Request booking</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: Confirmation -->
+  <section class="panel hidden" id="step4">
+    <div class="success-icon">&check;</div>
+    <h2>Booking request ready</h2>
+    <p class="panel-note">Here is what would be sent to the hostel's own inbox, direct, with no OTA in between.</p>
+    <div class="confirm-box" id="confirmBox"></div>
+    <div class="demo-note">
+      This is a free concept demo built by Likwiid to show what a first-party booking page could look like for Hostel Old Plovdiv. No data was collected or transmitted. In the real version, this step would notify the hostel directly and the hostel would reply to confirm.
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" id="startOver">Start a new search</button>
+      <span></span>
+    </div>
+  </section>
+
+  <!-- Sticky room summary, shown from step 2 onward -->
+  <div class="summary-bar hidden" id="summaryBar">
+    <span id="summaryText">No room selected yet</span>
+    <span class="total" id="summaryTotal"></span>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-wrap">
+    <strong>Hostel Old Plovdiv</strong>
+    <span>3 Chetvarti Yanuari Str, Plovdiv 4000, Bulgaria</span>
+    <span>Phone: <a href="tel:+35932260925">+359 32 26 09 25</a> &nbsp;|&nbsp; Email: <a href="mailto:hosteloldplovdiv@hotmail.com">hosteloldplovdiv@hotmail.com</a></span>
+    <div class="foot-credit">Free concept by <a href="https://likwiid.com" target="_blank" rel="noopener">Likwiid</a> &nbsp;·&nbsp; Software that flows</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ROOMS = [
+    {
+      id: "dorm",
+      name: "Bed in 5-Bed Dormitory Room",
+      price: 15,
+      unit: "per bed, per night",
+      detail: "35 sqm shared room, single beds, shared bathroom, desk, wooden floor, wardrobe, hairdryer, TV with cable channels.",
+      img: "https://hosteloldplovdiv.com/wp-content/uploads/slideshow-gallery/ROOM%208%20SMALL.jpg"
+    },
+    {
+      id: "single",
+      name: "Private Single Room",
+      price: 38,
+      unit: "per room, per night",
+      detail: "25 sqm private room with a single bed and shared bathroom, in the restored 1868 house.",
+      img: "https://hosteloldplovdiv.com/wp-content/uploads/slideshow-gallery/staia6%20SMALL.jpg"
+    },
+    {
+      id: "twin",
+      name: "Private Twin Room",
+      price: 49,
+      unit: "per room, per night",
+      detail: "30 sqm private room with two single beds and a shared bathroom, antique furniture throughout.",
+      img: "https://hosteloldplovdiv.com/wp-content/uploads/slideshow-gallery/H_30.jpg"
+    },
+    {
+      id: "triple",
+      name: "Private Triple Room",
+      price: 59,
+      unit: "per room, per night",
+      detail: "30 sqm private room with three single beds and a shared bathroom, good for small groups.",
+      img: "https://hosteloldplovdiv.com/wp-content/uploads/slideshow-gallery/ROOM%208%20NEW%20SMALL.jpg"
+    },
+    {
+      id: "quad",
+      name: "Private Quadruple Room",
+      price: 69,
+      unit: "per room, per night",
+      detail: "35 sqm private room with four single beds and a shared bathroom, the most space for families or friends.",
+      img: "https://hosteloldplovdiv.com/wp-content/uploads/slideshow-gallery/ROOM%208%20SMALL.jpg"
+    }
+  ];
+
+  var state = {
+    checkin: null,
+    checkout: null,
+    nights: 0,
+    guests: 2,
+    roomId: null
+  };
+
+  var els = {
+    checkin: document.getElementById('checkin'),
+    checkout: document.getElementById('checkout'),
+    guests: document.getElementById('guests'),
+    nightsBox: document.getElementById('nightsBox'),
+    dateError: document.getElementById('dateError'),
+    toStep2: document.getElementById('toStep2'),
+    toStep3: document.getElementById('toStep3'),
+    toStep4: document.getElementById('toStep4'),
+    backTo1: document.getElementById('backTo1'),
+    backTo2: document.getElementById('backTo2'),
+    startOver: document.getElementById('startOver'),
+    roomGrid: document.getElementById('roomGrid'),
+    summaryBar: document.getElementById('summaryBar'),
+    summaryText: document.getElementById('summaryText'),
+    summaryTotal: document.getElementById('summaryTotal'),
+    confirmBox: document.getElementById('confirmBox'),
+    formError: document.getElementById('formError'),
+    fullName: document.getElementById('fullName'),
+    email: document.getElementById('email'),
+    phone: document.getElementById('phone'),
+    notes: document.getElementById('notes')
+  };
+
+  function todayStr(offsetDays){
+    var d = new Date();
+    d.setDate(d.getDate() + (offsetDays || 0));
+    return d.toISOString().slice(0,10);
+  }
+  els.checkin.min = todayStr(0);
+  els.checkin.value = todayStr(1);
+  els.checkout.min = todayStr(2);
+  els.checkout.value = todayStr(3);
+
+  function calcNights(){
+    var inD = els.checkin.value ? new Date(els.checkin.value) : null;
+    var outD = els.checkout.value ? new Date(els.checkout.value) : null;
+    if(!inD || !outD){
+      state.nights = 0;
+      return;
+    }
+    var diff = Math.round((outD - inD) / (1000*60*60*24));
+    state.nights = diff > 0 ? diff : 0;
+  }
+
+  function renderNights(){
+    calcNights();
+    els.checkout.min = els.checkin.value ? todayStr(0) : todayStr(2);
+    if(state.nights > 0){
+      els.dateError.classList.remove('show');
+      var nightWord = state.nights === 1 ? 'night' : 'nights';
+      els.nightsBox.innerHTML = '<span>' + els.checkin.value + ' to ' + els.checkout.value + '</span><strong>' + state.nights + ' ' + nightWord + '</strong>';
+      els.toStep2.disabled = false;
+    } else {
+      els.toStep2.disabled = true;
+      if(els.checkin.value && els.checkout.value){
+        els.dateError.classList.add('show');
+        els.nightsBox.innerHTML = '<span>Pick valid dates to continue.</span>';
+      } else {
+        els.nightsBox.innerHTML = '<span>Pick your dates to see the length of stay.</span>';
+      }
+    }
+    updateSummary();
+  }
+
+  els.checkin.addEventListener('change', renderNights);
+  els.checkout.addEventListener('change', renderNights);
+  els.guests.addEventListener('change', function(){ state.guests = els.guests.value; updateSummary(); });
+  renderNights();
+
+  function buildRooms(){
+    els.roomGrid.innerHTML = '';
+    ROOMS.forEach(function(room){
+      var card = document.createElement('div');
+      card.className = 'room-card';
+      card.dataset.id = room.id;
+      card.innerHTML =
+        '<img class="room-photo" src="' + room.img + '" alt="' + room.name + ' at Hostel Old Plovdiv" loading="lazy">' +
+        '<div class="room-body">' +
+          '<div class="room-name">' + room.name + '</div>' +
+          '<div class="room-detail">' + room.detail + '</div>' +
+          '<div class="room-price">&euro;' + room.price + ' <span>' + room.unit + '</span></div>' +
+          '<button type="button" class="room-select-btn">Select</button>' +
+        '</div>';
+      card.querySelector('.room-select-btn').addEventListener('click', function(){
+        selectRoom(room.id);
+      });
+      els.roomGrid.appendChild(card);
+    });
+  }
+  buildRooms();
+
+  function selectRoom(id){
+    state.roomId = id;
+    Array.prototype.forEach.call(els.roomGrid.querySelectorAll('.room-card'), function(card){
+      var isSel = card.dataset.id === id;
+      card.classList.toggle('selected', isSel);
+      card.querySelector('.room-select-btn').textContent = isSel ? 'Selected' : 'Select';
+    });
+    els.toStep3.disabled = false;
+    updateSummary();
+  }
+
+  function getRoom(){
+    return ROOMS.filter(function(r){ return r.id === state.roomId; })[0] || null;
+  }
+
+  function updateSummary(){
+    var room = getRoom();
+    if(!room || state.nights <= 0){
+      els.summaryBar.classList.add('empty');
+      els.summaryText.textContent = 'No room selected yet';
+      els.summaryTotal.textContent = '';
+      return;
+    }
+    els.summaryBar.classList.remove('empty');
+    var nightWord = state.nights === 1 ? 'night' : 'nights';
+    els.summaryText.textContent = room.name + ' × ' + state.nights + ' ' + nightWord;
+    els.summaryTotal.textContent = '€' + (room.price * state.nights);
+  }
+
+  function showStep(n){
+    [1,2,3,4].forEach(function(i){
+      document.getElementById('step' + i).classList.toggle('hidden', i !== n);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#progressBar .step'), function(el){
+      el.classList.toggle('active', Number(el.dataset.step) === n);
+    });
+    els.summaryBar.classList.toggle('hidden', n === 1 || n === 4);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  els.toStep2.addEventListener('click', function(){ showStep(2); });
+  els.backTo1.addEventListener('click', function(){ showStep(1); });
+  els.toStep3.addEventListener('click', function(){ showStep(3); });
+  els.backTo2.addEventListener('click', function(){ showStep(2); });
+
+  els.toStep4.addEventListener('click', function(){
+    var name = els.fullName.value.trim();
+    var email = els.email.value.trim();
+    var phone = els.phone.value.trim();
+    if(!name || !email || !phone){
+      els.formError.classList.add('show');
+      return;
+    }
+    els.formError.classList.remove('show');
+    renderConfirmation(name, email, phone, els.notes.value.trim());
+    showStep(4);
+  });
+
+  function renderConfirmation(name, email, phone, notes){
+    var room = getRoom();
+    var total = room ? room.price * state.nights : 0;
+    var rows = [
+      ['Guest', name],
+      ['Email', email],
+      ['Phone', phone],
+      ['Check-in', els.checkin.value],
+      ['Check-out', els.checkout.value],
+      ['Length of stay', state.nights + (state.nights === 1 ? ' night' : ' nights')],
+      ['Guests', els.guests.value],
+      ['Room', room ? room.name : '']
+    ];
+    if(notes){ rows.push(['Notes', notes]); }
+    var html = rows.map(function(r){
+      return '<div class="confirm-row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>';
+    }).join('');
+    html += '<div class="confirm-total">Estimated total: €' + total + '</div>';
+    els.confirmBox.innerHTML = html;
+  }
+
+  els.startOver.addEventListener('click', function(){
+    state.roomId = null;
+    els.fullName.value = '';
+    els.email.value = '';
+    els.phone.value = '';
+    els.notes.value = '';
+    els.toStep3.disabled = true;
+    Array.prototype.forEach.call(els.roomGrid.querySelectorAll('.room-card'), function(card){
+      card.classList.remove('selected');
+      card.querySelector('.room-select-btn').textContent = 'Select';
+    });
+    updateSummary();
+    showStep(1);
+  });
+})();
+</script>
+</body>
+</html>
