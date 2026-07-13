@@ -1,0 +1,122 @@
+.why {
+  background: var(--cream-200);
+  padding: var(--space-7) var(--space-3);
+}
+
+.why__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.why__media {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+}
+
+.why__media.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.why__frame {
+  position: relative;
+  padding: var(--space-3) var(--space-3) 0 0;
+}
+
+.why__frame::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-3) 0 0 var(--space-3);
+  border: 2px solid var(--gold-500);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+}
+
+.why__img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lift);
+}
+
+.why__copy {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+  transition-delay: 80ms;
+}
+
+.why__copy.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.why__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin: 0 0 var(--space-2);
+  text-align: left;
+}
+
+.why__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  color: var(--maroon-900);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+  text-align: left;
+}
+
+.why__list {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.why__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--ink-600);
+  line-height: 1.5;
+}
+
+.why__marker {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--gold-500);
+}
+
+@media (min-width: 900px) {
+  .why__inner {
+    grid-template-columns: 0.85fr 1fr;
+    gap: var(--space-7);
+  }
+
+  .why__list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-4);
+  }
+}

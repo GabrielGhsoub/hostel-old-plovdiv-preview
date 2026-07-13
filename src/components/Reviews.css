@@ -1,0 +1,96 @@
+.reviews {
+  background: var(--cream-100);
+  padding: var(--space-7) var(--space-3);
+}
+
+.reviews__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+}
+
+.reviews__inner.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.reviews__stars {
+  font-size: 1.4rem;
+  color: var(--gold-500);
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-3);
+}
+
+.reviews__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin: 0 0 var(--space-2);
+}
+
+.reviews__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  color: var(--maroon-900);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+}
+
+.reviews__copy {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--ink-600);
+  line-height: 1.65;
+  margin: 0 0 var(--space-4);
+}
+
+.reviews__platforms {
+  list-style: none;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.reviews__platform {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--maroon-800);
+  background: var(--cream-50);
+  border: 1px solid var(--cream-300);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+}
+
+.reviews__cta {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--white);
+  background: var(--maroon-800);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-5);
+  text-decoration: none;
+  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.reviews__cta:hover {
+  background: var(--maroon-700);
+  transform: translateY(-2px);
+}
+
+.reviews__cta:focus-visible {
+  outline: 2px solid var(--maroon-900);
+  outline-offset: 2px;
+}
