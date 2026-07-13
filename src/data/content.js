@@ -75,6 +75,46 @@ export const ROOMS = [
   },
 ];
 
+// Per-room verified facts for the detail modal (from the 2026-07-11 audit).
+export const ROOM_FACTS = {
+  dorm: ["35 sqm shared room", "Single beds only", "Shared bathroom", "Desk and wardrobe", "Wooden parquet floor", "Hairdryer and cable TV", "Wake-up service"],
+  single: ["25 sqm private room", "One single bed", "Shared bathroom", "Quiet and compact", "Restored 1868 house"],
+  twin: ["30 sqm private room", "Two single beds", "Shared bathroom", "Restored antique furniture"],
+  triple: ["30 sqm private room", "Three single beds", "Shared bathroom", "Great for small groups"],
+  quad: ["35 sqm private room", "Four single beds", "Shared bathroom", "Most spacious private option", "Ideal for families"],
+};
+
+export const INCLUDED_WITH_EVERY_ROOM = [
+  "Free breakfast",
+  "Free wifi",
+  "Free parking",
+  "Free luggage storage",
+  "24-hour reception",
+];
+
+// SAMPLE reviews for the design preview ONLY. Not real guest quotes; each card
+// is visibly badged as a sample in the UI so nobody mistakes them for real ones.
+export const SAMPLE_REVIEWS = [
+  {
+    name: "Anna",
+    origin: "Germany",
+    stars: 5,
+    text: "The house itself is the experience. Antique beds, a garden fountain, and breakfast under a Roman wall. Four minutes from the main street but completely quiet at night.",
+  },
+  {
+    name: "James",
+    origin: "United Kingdom",
+    stars: 5,
+    text: "Booked the twin room and a day trip to the Wonderful Bridges. The owner arranged everything at the front desk in five minutes. Best value stay of our whole Balkans route.",
+  },
+  {
+    name: "Sofia",
+    origin: "Spain",
+    stars: 5,
+    text: "Felt more like a boutique hotel than a hostel. Free parking in the Old Town alone is worth it, and the staff treated us like family guests.",
+  },
+];
+
 export const WHY = {
   img: "https://hosteloldplovdiv.com/wp-content/uploads/slideshow-gallery/Gradina_Small.jpg",
   points: [
